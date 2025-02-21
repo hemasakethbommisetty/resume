@@ -70,7 +70,7 @@ h2 {
 }
 .profile-details {
     display: flex;
-    gap: 300px;
+    gap: 200px;
     margin-top: 10px;
     font-size: 20px;
 }
