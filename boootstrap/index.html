@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+       
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+       
+        .carousel-container {
+            position: relative;
+            width: 300px;
+            height: 300px; 
+            overflow: hidden;
+        }
+
+        .carousel-images {
+            display: flex;
+            width: 900px;
+            transition: transform 1s ease-in-out; 
+        }
+
+        .carousel-images img {
+            width: 300px;
+            height: 300px; 
+            object-fit: cover; 
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            33.33% {
+                transform: translateX(-300px);
+            }
+            66.66% {
+                transform: translateX(-600px);
+            }
+            100% {
+                transform: translateX(0); 
+            }
+        }
+
+        .profile-info {
+            margin-left: 20px;
+            color: #f4f4f4;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="carousel-container">
+            <div class="carousel-images">
+                <img src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Image 1">
+                <img src="https://images.pexels.com/photos/2381101/pexels-photo-2381101.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Image 2">
+                <img src="https://images.pexels.com/photos/2246434/pexels-photo-2246434.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Image 3">
+            </div>
+
+            <span class="arrow arrow-left" onclick="moveSlide(-1)">&#10094;</span>
+            <span class="arrow arrow-right" onclick="moveSlide(1)">&#10095;</span>
+        </div>
+
+        <div class="profile-info">
+            <h1 style="color: #f4f4f4;">Hema Saketh</h1>
+            <p>Student</p>
+            <div class="profile-details">
+                <div>
+                    <p><strong>Phone:</strong> +91-8341854338</p>
+                    <p><strong>Email:</strong> hemasakethbommisetty@gmail.com</p>
+                    <p><strong>LinkedIn:</strong> in/hemasaketh</p>
+                    <p><strong>Location:</strong> Old Guntur, Guntur</p>
+                </div>
+                <div>
+                    <p><strong>Date of Birth:</strong> 14 May 2005</p>
+                    <p><strong>Gender:</strong> Male</p>
+                    <p><strong>Nationality:</strong> Indian</p>
+                    <p><strong>Religion:</strong> Hindu</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section">
+            <h2>Education</h2>
+            <p><strong>B.TECH</strong><br>
+            SRM University, ANDHRA PRADESH, India<br>
+            <em>Graduated: 2027</em></p>
+            <ul>
+                <li>Graduated with Distinction (85%)</li>
+                <li>Relevant coursework: HTML CSS JAVA SCRIPT</li>
+                <li>Awarded Best website designer</li>
+            </ul>
+            <p><strong>Higher secondary in Kendriya Vidyalaya</strong><br>
+            KV,GUNTUR, India<br>
+            <em>Graduated: 2023</em></p>
+            <ul>
+                <li>Extracurricular: HOUSE CAPTAIN</li>
+                <li>Graduated with First Class (76%)</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Work Experience</h2>
+            <p><strong>Intern - Software Development</strong><br>
+                XYZ Technologies,Guntur, India<br>
+                <em>May 2027-Present</em></p>
+                <ul>
+                    <li>Collaborated with a team of developers to design and implement a web application for internal use, improving process efficiency by 15%.</li>
+                    <li>Assisted in troubleshooting and debugging code, helping reduce errors by 10% in the final product.</li>
+                    <li>Conducted research on emerging technologies like AI and Blockchain, contributing to the team's discussions on possible integrations.</li>
+                </ul>
+                
+                <p><strong>Technical Volunteer</strong><br>
+                ABC University Tech Club, Guntur, India<br>
+                <em>September 2027-Present</em></p>
+                <ul>
+                    <li>Assisted in organizing workshops on programming languages (Python, Java) and participated in student tech meetups, enhancing peer collaboration.</li>
+                    <li>Developed and tested small-scale software tools for club events, streamlining registration processes for over 200 participants.</li>
+                    <li>Contributed to team projects focused on developing solutions for university-based challenges, enhancing problem-solving skills.</li>
+                </ul>
+                
+        <div class="section">
+            <h2>Skills</h2>
+            <div class="skills">
+                <div>
+                    <strong>Technical Skills</strong>
+                    <ul>
+                        <li>UI UX DESIGN</li>
+                        <li>FRONT END</li>
+                        <li>Data Structures</li>
+                        <li>OBJECT ORIENTED PROGRAMMING</li>
+                        <li>C AND C++</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong>Soft Skills</strong>
+                    <ul>
+                        <li>Leadership and Team Coordination</li>
+                        <li>Communication</li>
+                        <li>Problem-Solving</li>
+                        <li>Strategic Planning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentIndex = 0;
+
+        function moveSlide(step) {
+            const carousel = document.querySelector('.carousel-images');
+            const totalSlides = document.querySelectorAll('.carousel-images img').length;
+            currentIndex += step;
+
+            if (currentIndex < 0) {
+                currentIndex = totalSlides - 1;
+            } else if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+            }
+            carousel.style.transform = `translateX(-${currentIndex * 300}px)`; 
+        }
+        setInterval(() => {
+            moveSlide(1);
+        }, 4000);
+    </script>
+</body>
+</html>
